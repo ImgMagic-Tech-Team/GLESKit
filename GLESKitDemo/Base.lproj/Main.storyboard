@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rzd-7j-P8j">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--GLKit View Controller-->
+        <scene sceneID="6ux-IC-AbP">
+            <objects>
+                <glkViewController preferredFramesPerSecond="30" id="hmU-kv-qo4" customClass="PlaygroundViewController" customModule="GLESWrapperUsageExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N0D-Xy-NfU"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Pt-A9-jyJ"/>
+                    </layoutGuides>
+                    <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" id="M9b-TD-HUG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="B7F-Wv-B7m"/>
+                        <connections>
+                            <outlet property="delegate" destination="hmU-kv-qo4" id="jah-n8-jcR"/>
+                        </connections>
+                    </glkView>
+                </glkViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t3U-IP-a6z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-65" y="63"/>
+        </scene>
+        <!--GLKit View Controller-->
+        <scene sceneID="qxM-o2-YP2">
+            <objects>
+                <glkViewController preferredFramesPerSecond="60" id="rzd-7j-P8j" customClass="LightingViewController" customModule="GLESWrapperUsageExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BP5-vK-PgW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wda-VG-ikq"/>
+                    </layoutGuides>
+                    <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" id="JoL-BT-V6M">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVs-HP-VfR" userLabel="Occluders Container - UIView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lights " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnV-6C-G9J" userLabel="Lights - UILabel">
+                                        <rect key="frame" x="164" y="430" width="86.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="0.99218027539999998" green="0.71540356260000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Shuffle_48" translatesAutoresizingMaskIntoConstraints="NO" id="eep-gE-XUu" userLabel="Obstacle 1 - UIImageView">
+                                        <rect key="frame" x="81" y="79" width="48" height="48"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Airplane_48" translatesAutoresizingMaskIntoConstraints="NO" id="bUg-6c-K1S" userLabel="Obstacle 2 - UIImageView">
+                                        <rect key="frame" x="183" y="772" width="48" height="48"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="bUg-6c-K1S" secondAttribute="bottom" constant="76" id="3KZ-MJ-8Jd"/>
+                                    <constraint firstItem="bUg-6c-K1S" firstAttribute="centerX" secondItem="rVs-HP-VfR" secondAttribute="centerX" id="7cg-lh-Vdk"/>
+                                    <constraint firstItem="PnV-6C-G9J" firstAttribute="centerY" secondItem="rVs-HP-VfR" secondAttribute="centerY" id="7zs-Dz-U8D"/>
+                                    <constraint firstItem="eep-gE-XUu" firstAttribute="leading" secondItem="rVs-HP-VfR" secondAttribute="leading" constant="81" id="HAl-us-Ov3"/>
+                                    <constraint firstItem="PnV-6C-G9J" firstAttribute="centerX" secondItem="rVs-HP-VfR" secondAttribute="centerX" id="NzF-Zs-paF"/>
+                                    <constraint firstItem="eep-gE-XUu" firstAttribute="top" secondItem="rVs-HP-VfR" secondAttribute="top" constant="79" id="cfa-B4-sqg"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgB-Xo-bGB" userLabel="Lights Container - UIView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LIght-Bulb_32" translatesAutoresizingMaskIntoConstraints="NO" id="3dA-Rp-hjs" userLabel="Orange Light - LightView" customClass="LightView" customModule="GLESWrapperUsageExamples" customModuleProvider="target">
+                                        <rect key="frame" x="113" y="563" width="32" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                                                <color key="value" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LIght-Bulb_32" translatesAutoresizingMaskIntoConstraints="NO" id="DHx-mp-aOu" userLabel="Blue Light - LightView" customClass="LightView" customModule="GLESWrapperUsageExamples" customModuleProvider="target">
+                                        <rect key="frame" x="42" y="36" width="32" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                                                <color key="value" red="0.66666666669999997" green="0.73333333329999995" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LIght-Bulb_32" translatesAutoresizingMaskIntoConstraints="NO" id="elj-W7-Jdk" userLabel="Red Light - LightView" customClass="LightView" customModule="GLESWrapperUsageExamples" customModuleProvider="target">
+                                        <rect key="frame" x="93" y="307" width="32" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                                                <color key="value" red="1" green="0.31144774780000001" blue="0.33690719740000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LIght-Bulb_32" translatesAutoresizingMaskIntoConstraints="NO" id="GIw-gi-gyO" userLabel="Green Light - LightView" customClass="LightView" customModule="GLESWrapperUsageExamples" customModuleProvider="target">
+                                        <rect key="frame" x="263" y="72" width="32" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                                                <color key="value" red="0.72603643890000003" green="1" blue="0.73362315860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AC2-f8-eUV"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="rVs-HP-VfR" secondAttribute="bottom" id="1aX-HJ-mW7"/>
+                            <constraint firstAttribute="bottom" secondItem="GgB-Xo-bGB" secondAttribute="bottom" id="4Ux-xm-w4r"/>
+                            <constraint firstItem="rVs-HP-VfR" firstAttribute="top" secondItem="JoL-BT-V6M" secondAttribute="top" id="Ads-Jw-Bib"/>
+                            <constraint firstItem="GgB-Xo-bGB" firstAttribute="top" secondItem="JoL-BT-V6M" secondAttribute="top" id="NUq-zd-RvZ"/>
+                            <constraint firstItem="GgB-Xo-bGB" firstAttribute="leading" secondItem="JoL-BT-V6M" secondAttribute="leading" id="ZLa-EP-Ilm"/>
+                            <constraint firstAttribute="trailing" secondItem="GgB-Xo-bGB" secondAttribute="trailing" id="jFI-pF-ZFR"/>
+                            <constraint firstAttribute="trailing" secondItem="rVs-HP-VfR" secondAttribute="trailing" id="qhe-tX-mGo"/>
+                            <constraint firstItem="rVs-HP-VfR" firstAttribute="leading" secondItem="JoL-BT-V6M" secondAttribute="leading" id="tCc-Yi-mEh"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="delegate" destination="rzd-7j-P8j" id="Klo-WQ-Glu"/>
+                        </connections>
+                    </glkView>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="lightRadius">
+                            <integer key="value" value="275"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="lightRaysCount">
+                            <integer key="value" value="1024"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="occludersContainerView" destination="rVs-HP-VfR" id="ezT-Dt-yob"/>
+                        <outletCollection property="obstacles" destination="eep-gE-XUu" collectionClass="NSMutableArray" id="eDi-Yj-tFX"/>
+                        <outletCollection property="obstacles" destination="bUg-6c-K1S" collectionClass="NSMutableArray" id="RZu-wu-0KX"/>
+                        <outletCollection property="lights" destination="DHx-mp-aOu" collectionClass="NSMutableArray" id="PBX-kT-Lrd"/>
+                        <outletCollection property="lights" destination="elj-W7-Jdk" collectionClass="NSMutableArray" id="Ryx-on-nlr"/>
+                        <outletCollection property="lights" destination="3dA-Rp-hjs" collectionClass="NSMutableArray" id="Lx4-Xd-j8b"/>
+                        <outletCollection property="lights" destination="GIw-gi-gyO" collectionClass="NSMutableArray" id="WQf-jr-eWG"/>
+                    </connections>
+                </glkViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nox-38-2Kx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704.79999999999995" y="62.518740629685162"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Airplane_48" width="48" height="48"/>
+        <image name="LIght-Bulb_32" width="32" height="32"/>
+        <image name="Shuffle_48" width="48" height="48"/>
+    </resources>
+</document>

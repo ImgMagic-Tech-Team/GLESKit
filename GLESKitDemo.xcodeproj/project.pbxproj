@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F65991326B4199D0087A447 /* FlatLightingVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65991226B4199D0087A447 /* FlatLightingVertex.swift */; };
+		1F65991B26B419F40087A447 /* LightRenderer.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1F65991726B419F40087A447 /* LightRenderer.fsh */; };
+		1F65991C26B419F40087A447 /* LightRenderer.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 1F65991826B419F40087A447 /* LightRenderer.vsh */; };
+		1F65991D26B419F40087A447 /* ShadowMapRenderer.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1F65991926B419F40087A447 /* ShadowMapRenderer.fsh */; };
+		1F65991E26B419F40087A447 /* ShadowMapRenderer.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 1F65991A26B419F40087A447 /* ShadowMapRenderer.vsh */; };
+		1F65992126B41A0D0087A447 /* LightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65992026B41A0D0087A447 /* LightView.swift */; };
+		1F65992426B41A4A0087A447 /* LightingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65992326B41A4A0087A447 /* LightingViewController.swift */; };
+		1F65992E26B41C900087A447 /* BlinnPhong.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 1F65992C26B41C900087A447 /* BlinnPhong.vsh */; };
+		1F65992F26B41C900087A447 /* BlinnPhong.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1F65992D26B41C900087A447 /* BlinnPhong.fsh */; };
+		1F65993226B41CB00087A447 /* PlaygroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65993126B41CB00087A447 /* PlaygroundViewController.swift */; };
+		1F65994726B42B8C0087A447 /* GLESKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCAEC8123D7932B00EB0D28 /* GLESKit.framework */; };
+		1F65994926B42BB30087A447 /* GLESKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FCAEC8123D7932B00EB0D28 /* GLESKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1FCAEC5223D792D300EB0D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAEC5123D792D300EB0D28 /* AppDelegate.swift */; };
+		1FCAEC5423D792D300EB0D28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAEC5323D792D300EB0D28 /* SceneDelegate.swift */; };
+		1FCAEC5623D792D300EB0D28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAEC5523D792D300EB0D28 /* ViewController.swift */; };
+		1FCAEC5923D792D300EB0D28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAEC5723D792D300EB0D28 /* Main.storyboard */; };
+		1FCAEC5B23D792D400EB0D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAEC5A23D792D400EB0D28 /* Assets.xcassets */; };
+		1FCAEC5E23D792D400EB0D28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAEC5C23D792D400EB0D28 /* LaunchScreen.storyboard */; };
+		1FCAEC8D23D7937E00EB0D28 /* gnom_head.obj in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAEC8823D7937E00EB0D28 /* gnom_head.obj */; };
+		1FCAEC8E23D7937E00EB0D28 /* spot.obj in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAEC8923D7937E00EB0D28 /* spot.obj */; };
+		1FCAEC8F23D7937E00EB0D28 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAEC8A23D7937E00EB0D28 /* cube.obj */; };
+		1FCAEC9023D7937E00EB0D28 /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAEC8B23D7937E00EB0D28 /* teapot.obj */; };
+		1FCAEC9123D7937E00EB0D28 /* cube.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAEC8C23D7937E00EB0D28 /* cube.mtl */; };
+		1FCAEC9C23D793B300EB0D28 /* WavefrontGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAEC9423D793B300EB0D28 /* WavefrontGroup.swift */; };
+		1FCAEC9D23D793B300EB0D28 /* WavefrontObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAEC9523D793B300EB0D28 /* WavefrontObjectLoader.swift */; };
+		1FCAEC9E23D793B300EB0D28 /* WavefrontFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAEC9623D793B300EB0D28 /* WavefrontFileReader.swift */; };
+		1FCAEC9F23D793B300EB0D28 /* WavefrontMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAEC9723D793B300EB0D28 /* WavefrontMaterial.swift */; };
+		1FCAECA023D793B300EB0D28 /* WavefrontVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAEC9823D793B300EB0D28 /* WavefrontVertex.swift */; };
+		1FCAECA123D793B300EB0D28 /* WavefrontMaterialLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAEC9923D793B300EB0D28 /* WavefrontMaterialLoader.swift */; };
+		1FCAECA223D793B300EB0D28 /* WavefrontMaterialReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAEC9A23D793B300EB0D28 /* WavefrontMaterialReader.swift */; };
+		1FCAECA323D793B300EB0D28 /* WavefrontGeometryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAEC9B23D793B300EB0D28 /* WavefrontGeometryReader.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1FCAEC8023D7932B00EB0D28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FCAEC7C23D7932B00EB0D28 /* GLESKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1FCAEC1823D78F4900EB0D28;
+			remoteInfo = GLESKit;
+		};
+		1FCAEC8223D7933500EB0D28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FCAEC7C23D7932B00EB0D28 /* GLESKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FCAEC1723D78F4900EB0D28;
+			remoteInfo = GLESKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1F65994826B42BA90087A447 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1F65994926B42BB30087A447 /* GLESKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1F65991226B4199D0087A447 /* FlatLightingVertex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatLightingVertex.swift; sourceTree = "<group>"; };
+		1F65991726B419F40087A447 /* LightRenderer.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightRenderer.fsh; sourceTree = "<group>"; };
+		1F65991826B419F40087A447 /* LightRenderer.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightRenderer.vsh; sourceTree = "<group>"; };
+		1F65991926B419F40087A447 /* ShadowMapRenderer.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ShadowMapRenderer.fsh; sourceTree = "<group>"; };
+		1F65991A26B419F40087A447 /* ShadowMapRenderer.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ShadowMapRenderer.vsh; sourceTree = "<group>"; };
+		1F65992026B41A0D0087A447 /* LightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightView.swift; sourceTree = "<group>"; };
+		1F65992326B41A4A0087A447 /* LightingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightingViewController.swift; sourceTree = "<group>"; };
+		1F65992C26B41C900087A447 /* BlinnPhong.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlinnPhong.vsh; sourceTree = "<group>"; };
+		1F65992D26B41C900087A447 /* BlinnPhong.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BlinnPhong.fsh; sourceTree = "<group>"; };
+		1F65993126B41CB00087A447 /* PlaygroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundViewController.swift; sourceTree = "<group>"; };
+		1FCAEC4E23D792D300EB0D28 /* GLESKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLESKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FCAEC5123D792D300EB0D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1FCAEC5323D792D300EB0D28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1FCAEC5523D792D300EB0D28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1FCAEC5823D792D300EB0D28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1FCAEC5A23D792D400EB0D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1FCAEC5D23D792D400EB0D28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1FCAEC5F23D792D400EB0D28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FCAEC7C23D7932B00EB0D28 /* GLESKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GLESKit.xcodeproj; sourceTree = "<group>"; };
+		1FCAEC8823D7937E00EB0D28 /* gnom_head.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gnom_head.obj; sourceTree = "<group>"; };
+		1FCAEC8923D7937E00EB0D28 /* spot.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spot.obj; sourceTree = "<group>"; };
+		1FCAEC8A23D7937E00EB0D28 /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
+		1FCAEC8B23D7937E00EB0D28 /* teapot.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teapot.obj; sourceTree = "<group>"; };
+		1FCAEC8C23D7937E00EB0D28 /* cube.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.mtl; sourceTree = "<group>"; };
+		1FCAEC9423D793B300EB0D28 /* WavefrontGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WavefrontGroup.swift; sourceTree = "<group>"; };
+		1FCAEC9523D793B300EB0D28 /* WavefrontObjectLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WavefrontObjectLoader.swift; sourceTree = "<group>"; };
+		1FCAEC9623D793B300EB0D28 /* WavefrontFileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WavefrontFileReader.swift; sourceTree = "<group>"; };
+		1FCAEC9723D793B300EB0D28 /* WavefrontMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WavefrontMaterial.swift; sourceTree = "<group>"; };
+		1FCAEC9823D793B300EB0D28 /* WavefrontVertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WavefrontVertex.swift; sourceTree = "<group>"; };
+		1FCAEC9923D793B300EB0D28 /* WavefrontMaterialLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WavefrontMaterialLoader.swift; sourceTree = "<group>"; };
+		1FCAEC9A23D793B300EB0D28 /* WavefrontMaterialReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WavefrontMaterialReader.swift; sourceTree = "<group>"; };
+		1FCAEC9B23D793B300EB0D28 /* WavefrontGeometryReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WavefrontGeometryReader.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1FCAEC4B23D792D300EB0D28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F65994726B42B8C0087A447 /* GLESKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F65991126B419860087A447 /* GLESKit Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F65991226B4199D0087A447 /* FlatLightingVertex.swift */,
+			);
+			path = "GLESKit Extensions";
+			sourceTree = "<group>";
+		};
+		1F65991626B419D90087A447 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				1F65992B26B41C620087A447 /* Playground Scene */,
+				1F65992726B41C510087A447 /* Lighting Scene */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		1F65992726B41C510087A447 /* Lighting Scene */ = {
+			isa = PBXGroup;
+			children = (
+				1F65991726B419F40087A447 /* LightRenderer.fsh */,
+				1F65991826B419F40087A447 /* LightRenderer.vsh */,
+				1F65991926B419F40087A447 /* ShadowMapRenderer.fsh */,
+				1F65991A26B419F40087A447 /* ShadowMapRenderer.vsh */,
+			);
+			path = "Lighting Scene";
+			sourceTree = "<group>";
+		};
+		1F65992B26B41C620087A447 /* Playground Scene */ = {
+			isa = PBXGroup;
+			children = (
+				1F65992D26B41C900087A447 /* BlinnPhong.fsh */,
+				1F65992C26B41C900087A447 /* BlinnPhong.vsh */,
+			);
+			path = "Playground Scene";
+			sourceTree = "<group>";
+		};
+		1FCAEC4523D792D300EB0D28 = {
+			isa = PBXGroup;
+			children = (
+				1FCAEC7C23D7932B00EB0D28 /* GLESKit.xcodeproj */,
+				1FCAEC5023D792D300EB0D28 /* GLESKitDemo */,
+				1FCAEC4F23D792D300EB0D28 /* Products */,
+				1FCAEC8423D7933C00EB0D28 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1FCAEC4F23D792D300EB0D28 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FCAEC4E23D792D300EB0D28 /* GLESKitDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1FCAEC5023D792D300EB0D28 /* GLESKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				1FCAEC9223D7939700EB0D28 /* src */,
+				1FCAEC8623D7935C00EB0D28 /* Resources */,
+				1FCAEC5123D792D300EB0D28 /* AppDelegate.swift */,
+				1FCAEC5323D792D300EB0D28 /* SceneDelegate.swift */,
+				1FCAEC5523D792D300EB0D28 /* ViewController.swift */,
+				1FCAEC5723D792D300EB0D28 /* Main.storyboard */,
+				1FCAEC5A23D792D400EB0D28 /* Assets.xcassets */,
+				1FCAEC5C23D792D400EB0D28 /* LaunchScreen.storyboard */,
+				1FCAEC5F23D792D400EB0D28 /* Info.plist */,
+			);
+			path = GLESKitDemo;
+			sourceTree = "<group>";
+		};
+		1FCAEC7D23D7932B00EB0D28 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FCAEC8123D7932B00EB0D28 /* GLESKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1FCAEC8423D7933C00EB0D28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1FCAEC8623D7935C00EB0D28 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1FCAEC8723D7937E00EB0D28 /* Models */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1FCAEC8723D7937E00EB0D28 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1FCAEC8823D7937E00EB0D28 /* gnom_head.obj */,
+				1FCAEC8923D7937E00EB0D28 /* spot.obj */,
+				1FCAEC8A23D7937E00EB0D28 /* cube.obj */,
+				1FCAEC8B23D7937E00EB0D28 /* teapot.obj */,
+				1FCAEC8C23D7937E00EB0D28 /* cube.mtl */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1FCAEC9223D7939700EB0D28 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1F65991626B419D90087A447 /* Shaders */,
+				1F65991126B419860087A447 /* GLESKit Extensions */,
+				1FCAEC9323D793B300EB0D28 /* WaveFont */,
+				1F65992026B41A0D0087A447 /* LightView.swift */,
+				1F65992326B41A4A0087A447 /* LightingViewController.swift */,
+				1F65993126B41CB00087A447 /* PlaygroundViewController.swift */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		1FCAEC9323D793B300EB0D28 /* WaveFont */ = {
+			isa = PBXGroup;
+			children = (
+				1FCAEC9423D793B300EB0D28 /* WavefrontGroup.swift */,
+				1FCAEC9523D793B300EB0D28 /* WavefrontObjectLoader.swift */,
+				1FCAEC9623D793B300EB0D28 /* WavefrontFileReader.swift */,
+				1FCAEC9723D793B300EB0D28 /* WavefrontMaterial.swift */,
+				1FCAEC9823D793B300EB0D28 /* WavefrontVertex.swift */,
+				1FCAEC9923D793B300EB0D28 /* WavefrontMaterialLoader.swift */,
+				1FCAEC9A23D793B300EB0D28 /* WavefrontMaterialReader.swift */,
+				1FCAEC9B23D793B300EB0D28 /* WavefrontGeometryReader.swift */,
+			);
+			path = WaveFont;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1FCAEC4D23D792D300EB0D28 /* GLESKitDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FCAEC6D23D792D400EB0D28 /* Build configuration list for PBXNativeTarget "GLESKitDemo" */;
+			buildPhases = (
+				1FCAEC4A23D792D300EB0D28 /* Sources */,
+				1FCAEC4B23D792D300EB0D28 /* Frameworks */,
+				1FCAEC4C23D792D300EB0D28 /* Resources */,
+				1F65994826B42BA90087A447 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FCAEC8323D7933500EB0D28 /* PBXTargetDependency */,
+			);
+			name = GLESKitDemo;
+			productName = GLESKitDemo;
+			productReference = 1FCAEC4E23D792D300EB0D28 /* GLESKitDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1FCAEC4623D792D300EB0D28 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "su xinde";
+				TargetAttributes = {
+					1FCAEC4D23D792D300EB0D28 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+				};
+			};
+			buildConfigurationList = 1FCAEC4923D792D300EB0D28 /* Build configuration list for PBXProject "GLESKitDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1FCAEC4523D792D300EB0D28;
+			productRefGroup = 1FCAEC4F23D792D300EB0D28 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1FCAEC7D23D7932B00EB0D28 /* Products */;
+					ProjectRef = 1FCAEC7C23D7932B00EB0D28 /* GLESKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				1FCAEC4D23D792D300EB0D28 /* GLESKitDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1FCAEC8123D7932B00EB0D28 /* GLESKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GLESKit.framework;
+			remoteRef = 1FCAEC8023D7932B00EB0D28 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1FCAEC4C23D792D300EB0D28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F65992E26B41C900087A447 /* BlinnPhong.vsh in Resources */,
+				1FCAEC8F23D7937E00EB0D28 /* cube.obj in Resources */,
+				1FCAEC8D23D7937E00EB0D28 /* gnom_head.obj in Resources */,
+				1FCAEC9123D7937E00EB0D28 /* cube.mtl in Resources */,
+				1F65991E26B419F40087A447 /* ShadowMapRenderer.vsh in Resources */,
+				1FCAEC8E23D7937E00EB0D28 /* spot.obj in Resources */,
+				1F65991D26B419F40087A447 /* ShadowMapRenderer.fsh in Resources */,
+				1F65991B26B419F40087A447 /* LightRenderer.fsh in Resources */,
+				1FCAEC5E23D792D400EB0D28 /* LaunchScreen.storyboard in Resources */,
+				1FCAEC9023D7937E00EB0D28 /* teapot.obj in Resources */,
+				1F65991C26B419F40087A447 /* LightRenderer.vsh in Resources */,
+				1FCAEC5B23D792D400EB0D28 /* Assets.xcassets in Resources */,
+				1F65992F26B41C900087A447 /* BlinnPhong.fsh in Resources */,
+				1FCAEC5923D792D300EB0D28 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1FCAEC4A23D792D300EB0D28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FCAEC9F23D793B300EB0D28 /* WavefrontMaterial.swift in Sources */,
+				1FCAEC9C23D793B300EB0D28 /* WavefrontGroup.swift in Sources */,
+				1FCAECA023D793B300EB0D28 /* WavefrontVertex.swift in Sources */,
+				1F65992126B41A0D0087A447 /* LightView.swift in Sources */,
+				1F65992426B41A4A0087A447 /* LightingViewController.swift in Sources */,
+				1FCAECA123D793B300EB0D28 /* WavefrontMaterialLoader.swift in Sources */,
+				1FCAECA223D793B300EB0D28 /* WavefrontMaterialReader.swift in Sources */,
+				1FCAEC9E23D793B300EB0D28 /* WavefrontFileReader.swift in Sources */,
+				1F65993226B41CB00087A447 /* PlaygroundViewController.swift in Sources */,
+				1FCAEC5623D792D300EB0D28 /* ViewController.swift in Sources */,
+				1FCAEC5223D792D300EB0D28 /* AppDelegate.swift in Sources */,
+				1FCAEC5423D792D300EB0D28 /* SceneDelegate.swift in Sources */,
+				1FCAEC9D23D793B300EB0D28 /* WavefrontObjectLoader.swift in Sources */,
+				1F65991326B4199D0087A447 /* FlatLightingVertex.swift in Sources */,
+				1FCAECA323D793B300EB0D28 /* WavefrontGeometryReader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FCAEC8323D7933500EB0D28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GLESKit;
+			targetProxy = 1FCAEC8223D7933500EB0D28 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1FCAEC5723D792D300EB0D28 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FCAEC5823D792D300EB0D28 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1FCAEC5C23D792D400EB0D28 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FCAEC5D23D792D400EB0D28 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1FCAEC6B23D792D400EB0D28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1FCAEC6C23D792D400EB0D28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1FCAEC6E23D792D400EB0D28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CVWL76VY9C;
+				INFOPLIST_FILE = GLESKitDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.su.GLESKitDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1FCAEC6F23D792D400EB0D28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CVWL76VY9C;
+				INFOPLIST_FILE = GLESKitDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.su.GLESKitDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FCAEC4923D792D300EB0D28 /* Build configuration list for PBXProject "GLESKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FCAEC6B23D792D400EB0D28 /* Debug */,
+				1FCAEC6C23D792D400EB0D28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FCAEC6D23D792D400EB0D28 /* Build configuration list for PBXNativeTarget "GLESKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FCAEC6E23D792D400EB0D28 /* Debug */,
+				1FCAEC6F23D792D400EB0D28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1FCAEC4623D792D300EB0D28 /* Project object */;
+}
