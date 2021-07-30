@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F65995726B4403C0087A447 /* GLQuaternion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65995626B4403C0087A447 /* GLQuaternion.swift */; };
 		1FCAEC1D23D78F4900EB0D28 /* GLESKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FCAEC1B23D78F4900EB0D28 /* GLESKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FCAEC2623D78F9900EB0D28 /* GLObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAEC2523D78F9900EB0D28 /* GLObject.swift */; };
 		1FCAEC3623D791A700EB0D28 /* GLProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAEC2723D791A600EB0D28 /* GLProgram.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F65995626B4403C0087A447 /* GLQuaternion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLQuaternion.swift; sourceTree = "<group>"; };
 		1FCAEC1823D78F4900EB0D28 /* GLESKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GLESKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCAEC1B23D78F4900EB0D28 /* GLESKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLESKit.h; sourceTree = "<group>"; };
 		1FCAEC1C23D78F4900EB0D28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				1FCAEC2A23D791A600EB0D28 /* GLTexture.swift */,
 				1FCAEC2823D791A600EB0D28 /* GLTexture2D.swift */,
 				1FCAEC3223D791A700EB0D28 /* GLTexture2DArray.swift */,
+				1F65995626B4403C0087A447 /* GLQuaternion.swift */,
 				1FCAEC2923D791A600EB0D28 /* GLVertex.swift */,
 				1FCAEC2D23D791A600EB0D28 /* GLVertexArray.swift */,
 				1FCAEC3123D791A600EB0D28 /* GLVertexBufferObjectMemoryLayoutable.swift */,
@@ -183,6 +186,7 @@
 				1FCAEC3E23D791A700EB0D28 /* GLCGGeometryConverter.swift in Sources */,
 				1FCAEC3823D791A700EB0D28 /* GLVertex.swift in Sources */,
 				1FCAEC3D23D791A700EB0D28 /* GLResourceLoadingError.swift in Sources */,
+				1F65995726B4403C0087A447 /* GLQuaternion.swift in Sources */,
 				1FCAEC3A23D791A700EB0D28 /* GLFramebuffer.swift in Sources */,
 				1FCAEC4123D791A700EB0D28 /* GLTexture2DArray.swift in Sources */,
 				1FCAEC4423D791A700EB0D28 /* GLRender.swift in Sources */,
