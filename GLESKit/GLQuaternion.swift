@@ -81,18 +81,21 @@ public class GLQuaternion {
                 x = (rotationMatrix.m02 + rotationMatrix.m20) * multiplier
                 y = (rotationMatrix.m21 + rotationMatrix.m12) * multiplier
             default:
-                self = GLQuaternion.identity
+                z = 0.0
+                w = 1.0
+                x = 0.0
+                y = 0.0
         }
     }
     
-    public init(axis: GLKVector3, angle: Float) {
+    public convenience init(axis: GLKVector3, angle: Float) {
         let sin = sinf(angle / 2.0)
         let cos = cosf(angle / 2.0)
         let normAxis = GLKVector3Normalize(axis)
         self.init(w: cos, x: sin * axis.x, y: sin * axis.y, z: sin * axis.z)
     }
     
-    public init(fromRotation: GLKVector3, toRotation: GLKVector3) {
+    public convenience init(fromRotation: GLKVector3, toRotation: GLKVector3) {
         let angle = acosf(GLKVector3DotProduct(fromRotation, toRotation))
         let axis = GLKVector3CrossProduct(fromRotation, toRotation)
         self.init(axis: axis, angle: angle)
@@ -101,7 +104,6 @@ public class GLQuaternion {
     // MARK - Math
     
     // Static
-    
     public static var identity: GLQuaternion {
         return GLQuaternion(w: 1.0, x: 0.0, y: 0.0, z: 0.0)
     }
@@ -152,7 +154,6 @@ public class GLQuaternion {
     }
     
     // Instance
-    
     public var conjugate: GLQuaternion {
         return GLQuaternion(w: w, x: -x, y: -y, z: -z)
     }
