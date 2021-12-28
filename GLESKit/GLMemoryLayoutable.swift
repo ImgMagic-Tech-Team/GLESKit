@@ -11,13 +11,13 @@ import OpenGLES
 import GLKit
 
 /// <#Description#>
-public protocol GLVertexBufferObjectMemoryLayoutable {
+public protocol GLMemoryLayoutable {
     static var memorySize: Int { get }
     var primitiveSequence: [GLfloat] { get }
 }
 
 // MARK: - <#GLVertexBufferObjectMemoryLayoutable#>
-extension Float: GLVertexBufferObjectMemoryLayoutable {
+extension Float: GLMemoryLayoutable {
     
     /// <#Description#>
     public static var memorySize: Int {
@@ -31,7 +31,7 @@ extension Float: GLVertexBufferObjectMemoryLayoutable {
 }
 
 // MARK: - <#GLVertexBufferObjectMemoryLayoutable#>
-extension GLKVector2: GLVertexBufferObjectMemoryLayoutable {
+extension GLKVector2: GLMemoryLayoutable {
     
     /// <#Description#>
     public static var memorySize: Int {
@@ -45,7 +45,7 @@ extension GLKVector2: GLVertexBufferObjectMemoryLayoutable {
 }
 
 // MARK: - <#GLVertexBufferObjectMemoryLayoutable#>
-extension GLKVector3: GLVertexBufferObjectMemoryLayoutable {
+extension GLKVector3: GLMemoryLayoutable {
     
     /// <#Description#>
     public static var memorySize: Int {
@@ -59,7 +59,7 @@ extension GLKVector3: GLVertexBufferObjectMemoryLayoutable {
 }
 
 // MARK: - <#GLVertexBufferObjectMemoryLayoutable#>
-extension GLKVector4: GLVertexBufferObjectMemoryLayoutable {
+extension GLKVector4: GLMemoryLayoutable {
     
     /// <#Description#>
     public static var memorySize: Int {

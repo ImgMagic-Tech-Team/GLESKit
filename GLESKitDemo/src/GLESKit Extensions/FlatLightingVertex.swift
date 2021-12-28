@@ -12,10 +12,10 @@ import GLESKit
 
 class FlatLightingVertex: GLVertex {
     
-    public static var attributeLayouts: [GLVertexAttributeMemoryLayout] {
-        return [GLVertexAttributeMemoryLayout(location: 0,
+    public static var attributeLayouts: [GLMemoryLayout] {
+        return [GLMemoryLayout(location: 0,
                                               memorySize: GLKVector4.memorySize),
-                GLVertexAttributeMemoryLayout(location: 1,
+                GLMemoryLayout(location: 1,
                                               memorySize: GLKVector2.memorySize)]
     }
     

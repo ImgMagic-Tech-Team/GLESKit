@@ -10,7 +10,7 @@ import UIKit
 import OpenGLES
 
 /// <#Description#>
-public class GLVertexAttributeMemoryLayout {
+public class GLMemoryLayout {
     
     /// <#Description#>
     var location: Int
@@ -30,9 +30,9 @@ public class GLVertexAttributeMemoryLayout {
 }
 
 /// <#Description#>
-public protocol GLVertex: GLVertexBufferObjectMemoryLayoutable {
+public protocol GLVertex: GLMemoryLayoutable {
     
     /// <#Description#>
-    static var attributeLayouts: [GLVertexAttributeMemoryLayout] { get }
+    static var attributeLayouts: [GLMemoryLayout] { get }
 }
 

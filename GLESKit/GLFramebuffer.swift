@@ -47,13 +47,13 @@ public enum GLColorAttachment {
 }
 
 /// <#Description#>
-public class GLFramebuffer: GLObject, GLObjectUsable, GLObjectSizeable {
+public class GLFramebuffer: GLObject, GLUsable, GLSizeable {
 
     /// <#Description#>
     private(set) public var size: CGSize = .zero
     
     /// <#Description#>
-    internal var colorAttachments = [GLColorAttachment: GLObjectSizeable]()
+    internal var colorAttachments = [GLColorAttachment: GLSizeable]()
     
     /// <#Description#>
     ///

@@ -12,10 +12,10 @@ import GLESKit
 
 public class WavefrontVertex: GLVertex {
     
-    public static var attributeLayouts: [GLVertexAttributeMemoryLayout] {
-        return [GLVertexAttributeMemoryLayout(location: 0, memorySize: GLKVector4.memorySize),
-                GLVertexAttributeMemoryLayout(location: 1, memorySize: GLKVector3.memorySize),
-                GLVertexAttributeMemoryLayout(location: 2, memorySize: GLKVector3.memorySize)]
+    public static var attributeLayouts: [GLMemoryLayout] {
+        return [GLMemoryLayout(location: 0, memorySize: GLKVector4.memorySize),
+                GLMemoryLayout(location: 1, memorySize: GLKVector3.memorySize),
+                GLMemoryLayout(location: 2, memorySize: GLKVector3.memorySize)]
     }
     
     public static var memorySize: Int {

@@ -20,8 +20,8 @@ public enum GLTexture2DArrayError: Error {
 /// <#Description#>
 public class GLTexture2DArray: GLObject,
     GLTexture,
-    GLObjectUsable,
-    GLObjectSizeable {
+    GLUsable,
+    GLSizeable {
 
     /// <#Description#>
     private(set) public var size: CGSize = .zero

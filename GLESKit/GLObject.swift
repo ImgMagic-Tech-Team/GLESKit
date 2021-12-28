@@ -42,12 +42,12 @@ open class GLObject {
 }
 
 /// <#Description#>
-internal protocol GLObjectUsable {
+internal protocol GLUsable {
     func use()
 }
 
 
-extension GLKView: GLObjectUsable {
+extension GLKView: GLUsable {
     func use() {
         bindDrawable()
     }
@@ -57,13 +57,13 @@ extension GLKView: GLObjectUsable {
 
 
 /// <#Description#>
-internal protocol GLObjectSizeable {
+internal protocol GLSizeable {
     var size: CGSize { get }
     func validate(size: CGSize) throws
 }
 
 // MARK: - <#Description#>
-internal extension GLObjectSizeable {
+internal extension GLSizeable {
     func validate(size: CGSize) throws {
         if size.width == 0 || size.height == 0 {
             throw GLObject.SizeError.invalidSize(details: "Size cannot have dimensions of 0")
@@ -72,7 +72,7 @@ internal extension GLObjectSizeable {
 }
 
 // MARK: - <#GLObjectSizeable#>
-extension UIView: GLObjectSizeable {
+extension UIView: GLSizeable {
     var size: CGSize {
         return bounds.size
     }

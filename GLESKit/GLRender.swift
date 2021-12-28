@@ -58,7 +58,7 @@ public class GLRenderer<VertexType: GLVertex> {
     /// - Parameters:
     ///   - target: render target
     ///   - configuration: incapsulates render parameters for rendering to the target
-    private func prepareForRendering(to target: GLObjectSizeable,
+    private func prepareForRendering(to target: GLSizeable,
                                      with configuration: GLRenderConfiguration) {
         // Use viewport from a configuration object or determine it from the drawing surface's size
         if let viewport = configuration.viewport {
@@ -85,7 +85,7 @@ public class GLRenderer<VertexType: GLVertex> {
     /// - Parameters:
     ///   - target: some render target
     ///   - configuration: a configuration closure for modifying render parameters
-    private func internalRender(to target: GLObjectSizeable & GLObjectUsable,
+    private func internalRender(to target: GLSizeable & GLUsable,
                                 configuration: ((GLSinglePassRenderConfiguration<VertexType>) -> Void)?) {
         target.use()
         vertexArray.use()
@@ -113,7 +113,7 @@ public class GLRenderer<VertexType: GLVertex> {
     ///   - numberOfPasses: number of render passes
     ///   - configuration: a configuration closure which can be used to adjust render parameters before a render cycle starts
     ///   - singlePassConfiguration: a configuration closure for applying render parameters for a partuclar render pass
-    private func internalRender(to target: GLObjectSizeable & GLObjectUsable,
+    private func internalRender(to target: GLSizeable & GLUsable,
                                 numberOfPasses: Int,
                                 configuration: ((GLRenderConfiguration) -> Void)?,
                                 singlePassConfiguration: ((Int, GLSinglePassRenderConfiguration<VertexType>) -> Void)?) {

@@ -13,8 +13,8 @@ import GLKit
 /// <#Description#>
 public class GLTexture2D: GLObject,
     GLTexture,
-    GLObjectUsable,
-    GLObjectSizeable {
+    GLUsable,
+    GLSizeable {
    
     /// <#Description#>
     private var bitmapContext: CGContext?

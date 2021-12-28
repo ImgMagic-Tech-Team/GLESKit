@@ -18,7 +18,7 @@ enum GLVertexArrayError: Error {
 }
 
 /// <#Description#>
-public class GLVertexArray<VertexType: GLVertex>: GLObject, GLObjectUsable {
+public class GLVertexArray<VertexType: GLVertex>: GLObject, GLUsable {
     
     /// <#Description#>
     internal var vertices: [VertexType]

@@ -22,7 +22,7 @@ public enum GLProgramError: Error {
 }
 
 /// <#Description#>
-public class GLProgram: GLObject, GLObjectUsable {
+public class GLProgram: GLObject, GLUsable {
     
     /// <#Description#>
     private static var availableTextureUnits: [Int32] = {
@@ -110,7 +110,7 @@ public class GLProgram: GLObject, GLObjectUsable {
     ///   - texture: <#texture description#>
     /// - Throws: <#throws value description#>
     private func modifyUniform<TextureType: GLObject>(named name: String,
-                                                    withGeneric texture: TextureType) throws where TextureType: GLObjectUsable {
+                                                    withGeneric texture: TextureType) throws where TextureType: GLUsable {
         guard let uniformLocation = uniforms[name] else {
             throw GLProgramError.nonexistentUniform
         }
