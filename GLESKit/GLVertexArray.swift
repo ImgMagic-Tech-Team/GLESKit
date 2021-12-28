@@ -42,41 +42,70 @@ public class GLVertexArray<VertexType: GLVertex>: GLObject, GLUsable {
         
         // Generate GL objects
         var arrayName: GLuint = 0
-        glGenVertexArrays(1, &arrayName)
+        glGenVertexArrays(
+            1,
+            &arrayName
+        )
         glBindVertexArray(arrayName)
         
         var dataBuffer: GLuint = 0
         var indicesBuffer: GLuint = 0
         
-        glGenBuffers(1, &dataBuffer)
-        glGenBuffers(1, &indicesBuffer)
+        glGenBuffers(
+            1,
+            &dataBuffer
+        )
+        glGenBuffers(
+            1,
+            &indicesBuffer
+        )
         
         vertexDataBuffer = dataBuffer
         vertexIndicesBuffer = indicesBuffer
         
-        glBindBuffer(GLenum(GL_ARRAY_BUFFER), vertexDataBuffer)
-        glBindBuffer(GLenum(GL_ELEMENT_ARRAY_BUFFER), vertexIndicesBuffer)
+        glBindBuffer(
+            GLenum(GL_ARRAY_BUFFER),
+            vertexDataBuffer
+        )
+        glBindBuffer(
+            GLenum(GL_ELEMENT_ARRAY_BUFFER),
+            vertexIndicesBuffer
+        )
         
         // init buffers
         self.vertices = vertices
         self.indices = indices
         
-        let verticesPrimitiveSequence = vertices.flatMap({ $0.primitiveSequence })
+        let verticesPrimitiveSequence =
+            vertices.flatMap({ $0.primitiveSequence })
         
-        glBufferData(GLenum(GL_ARRAY_BUFFER),
-                     MemoryLayout<GLfloat>.size * verticesPrimitiveSequence.count,
-                     verticesPrimitiveSequence,
-                     GLenum(GL_DYNAMIC_DRAW))
+        glBufferData(
+            GLenum(GL_ARRAY_BUFFER),
+            MemoryLayout<GLfloat>.size * verticesPrimitiveSequence.count,
+            verticesPrimitiveSequence,
+            GLenum(GL_DYNAMIC_DRAW)
+        )
         
-        glBufferData(GLenum(GL_ELEMENT_ARRAY_BUFFER),
-                     MemoryLayout<GLushort>.size * indices.count,
-                     indices,
-                     GLenum(GL_STATIC_DRAW))
+        glBufferData(
+            GLenum(GL_ELEMENT_ARRAY_BUFFER),
+            MemoryLayout<GLushort>.size * indices.count,
+            indices,
+            GLenum(GL_STATIC_DRAW)
+        )
         
         var offset = 0
         for layout in VertexType.attributeLayouts {
-            glEnableVertexAttribArray(GLuint(layout.location))
-            glVertexAttribPointer(GLuint(layout.location), GLint(layout.memorySize / MemoryLayout<GLfloat>.size), GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(VertexType.memorySize), UnsafeRawPointer(bitPattern: offset));
+            glEnableVertexAttribArray(
+                GLuint(layout.location)
+            )
+            glVertexAttribPointer(
+                GLuint(layout.location),
+                GLint(layout.memorySize / MemoryLayout<GLfloat>.size),
+                GLenum(GL_FLOAT),
+                GLboolean(GL_FALSE),
+                GLsizei(VertexType.memorySize),
+                UnsafeRawPointer(bitPattern: offset)
+            )
             offset += layout.memorySize
         }
         

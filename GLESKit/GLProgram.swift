@@ -10,19 +10,21 @@ import UIKit
 import OpenGLES
 import GLKit
 
-/// <#Description#>
-///
-/// - unableToLink: <#unableToLink description#>
-/// - nonexistentUniform: <#nonexistentUniform description#>
-/// - tooManyUniformTextures: <#tooManyUniformTextures description#>
-public enum GLProgramError: Error {
-    case unableToLink(details: String)
-    case nonexistentUniform
-    case tooManyUniformTextures
-}
+
 
 /// <#Description#>
 public class GLProgram: GLObject, GLUsable {
+    
+    /// <#Description#>
+    ///
+    /// - unableToLink: <#unableToLink description#>
+    /// - nonexistentUniform: <#nonexistentUniform description#>
+    /// - tooManyUniformTextures: <#tooManyUniformTextures description#>
+    public enum Err: Error {
+        case unableToLink(details: String)
+        case nonexistentUniform
+        case tooManyUniformTextures
+    }
     
     /// <#Description#>
     private static var availableTextureUnits: [Int32] = {
@@ -73,7 +75,7 @@ public class GLProgram: GLObject, GLUsable {
         var linked: GLint = 0
         glGetProgramiv(name, GLenum(GL_LINK_STATUS), &linked)
         
-        if linked == 0 {
+        if linked == GLObject.Invalid {
             var infoLength: GLint = 0
             glGetProgramiv(name, GLenum(GL_INFO_LOG_LENGTH), &infoLength)
             
@@ -86,7 +88,7 @@ public class GLProgram: GLObject, GLUsable {
             }
             glDeleteProgram(name)
             
-            throw GLProgramError.unableToLink(details: errMsg)
+            throw GLProgram.Err.unableToLink(details: errMsg)
         }
     }
     
@@ -112,11 +114,13 @@ public class GLProgram: GLObject, GLUsable {
     private func modifyUniform<TextureType: GLObject>(named name: String,
                                                     withGeneric texture: TextureType) throws where TextureType: GLUsable {
         guard let uniformLocation = uniforms[name] else {
-            throw GLProgramError.nonexistentUniform
+            throw GLProgram.Err.nonexistentUniform
         }
-        let nonUsedTextureUnits = usedTextureUnits.symmetricDifference(GLProgram.availableTextureUnits)
+        let nonUsedTextureUnits = usedTextureUnits.symmetricDifference(
+            GLProgram.availableTextureUnits
+        )
         guard let textureUnit = nonUsedTextureUnits.first else {
-            throw GLProgramError.tooManyUniformTextures
+            throw GLProgram.Err.tooManyUniformTextures
         }
         usedTextureUnits.insert(textureUnit)
         
@@ -142,8 +146,11 @@ public class GLProgram: GLObject, GLUsable {
     /// - Throws: <#throws value description#>
     public func modifyUniform(named name: String,
                               with texture: GLTexture2D) throws {
-        try modifyUniform(named: name,
-                          withGeneric: texture)
+        try
+            modifyUniform(
+                named: name,
+                withGeneric: texture
+            )
     }
     
     
@@ -155,14 +162,17 @@ public class GLProgram: GLObject, GLUsable {
     /// - Throws: <#throws value description#>
     public func modifyUniform(named name: String,
                               with texture: GLTexture2DArray) throws {
-        try modifyUniform(named: name,
-                          withGeneric: texture)
+        try
+            modifyUniform(
+                named: name,
+                withGeneric: texture
+            )
     }
     
     public func modifyUniform(named name: String,
                               with value: Int) throws {
         guard let uniformLocation = uniforms[name] else {
-            throw GLProgramError.nonexistentUniform
+            throw GLProgram.Err.nonexistentUniform
         }
         glUniform1i(uniformLocation, GLint(value))
     }
@@ -170,7 +180,7 @@ public class GLProgram: GLObject, GLUsable {
     public func modifyUniform(named name: String,
                               with value: Float) throws {
         guard let uniformLocation = uniforms[name] else {
-            throw GLProgramError.nonexistentUniform
+            throw GLProgram.Err.nonexistentUniform
         }
         glUniform1f(uniformLocation, value)
     }
@@ -178,16 +188,20 @@ public class GLProgram: GLObject, GLUsable {
     public func modifyUniform(named name: String,
                               with vector: GLKVector2) throws {
         guard let uniformLocation = uniforms[name] else {
-            throw GLProgramError.nonexistentUniform
+            throw GLProgram.Err.nonexistentUniform
         }
         let vector = vector
-        glUniform2fv(uniformLocation, 1, vector.primitiveSequence)
+        glUniform2fv(
+            uniformLocation,
+            1,
+            vector.primitiveSequence
+        )
     }
     
     public func modifyUniform(named name: String,
                               with vector: GLKVector3) throws {
         guard let uniformLocation = uniforms[name] else {
-            throw GLProgramError.nonexistentUniform
+            throw GLProgram.Err.nonexistentUniform
         }
         let vector = vector
         glUniform3fv(uniformLocation,
@@ -198,7 +212,7 @@ public class GLProgram: GLObject, GLUsable {
     public func modifyUniform(named name: String,
                               with vector: GLKVector4) throws {
         guard let uniformLocation = uniforms[name] else {
-            throw GLProgramError.nonexistentUniform
+            throw GLProgram.Err.nonexistentUniform
         }
         let vector = vector
         glUniform4fv(uniformLocation,

@@ -63,16 +63,20 @@ public class GLRenderer<VertexType: GLVertex> {
         // Use viewport from a configuration object or determine it from the drawing surface's size
         if let viewport = configuration.viewport {
             let realViewport = GLCGGeometryConverter.pixels(from: GLCGGeometryConverter.inverted(rect: viewport, relativeTo: target.size))
-            glViewport(GLint(realViewport.origin.x),
-                       GLint(realViewport.origin.y),
-                       GLsizei(realViewport.size.width),
-                       GLsizei(realViewport.size.height))
+            glViewport(
+                GLint(realViewport.origin.x),
+                GLint(realViewport.origin.y),
+                GLsizei(realViewport.size.width),
+                GLsizei(realViewport.size.height)
+            )
         } else {
             let realSize = GLCGGeometryConverter.pixels(from: target.size)
-            glViewport(0,
-                       0,
-                       GLsizei(realSize.width),
-                       GLsizei(realSize.height))
+            glViewport(
+                0,
+                0,
+                GLsizei(realSize.width),
+                GLsizei(realSize.height)
+            )
         }
         
         if let buffersToClear = configuration.buffersToClear {
@@ -92,8 +96,10 @@ public class GLRenderer<VertexType: GLVertex> {
         program.use()
         program.prepareForRendering()
         
-        let singlePassRenderConfiguration = GLSinglePassRenderConfiguration(vertexArray: vertexArray,
-                                                                            program: program)
+        let singlePassRenderConfiguration = GLSinglePassRenderConfiguration(
+            vertexArray: vertexArray,
+            program: program
+        )
         if let configuration = configuration {
             configuration(singlePassRenderConfiguration)
         }

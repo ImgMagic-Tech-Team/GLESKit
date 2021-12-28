@@ -83,37 +83,49 @@ public class GLTexture2DArray: GLObject,
         
         let realSize = GLCGGeometryConverter.pixels(from: size)
         
-        glTexStorage3D(GLenum(GL_TEXTURE_2D_ARRAY),
-                       1,
-                       GLenum(GL_RGBA8),
-                       GLsizei(realSize.width),
-                       GLsizei(realSize.height),
-                       GLsizei(capacity))
+        glTexStorage3D(
+            GLenum(GL_TEXTURE_2D_ARRAY),
+            1,
+            GLenum(GL_RGBA8),
+            GLsizei(realSize.width),
+            GLsizei(realSize.height),
+            GLsizei(capacity)
+        )
     }
     
     /// <#Description#>
     public func use() {
-        glBindTexture(GLenum(GL_TEXTURE_2D_ARRAY),
-                      name)
+        glBindTexture(
+            GLenum(GL_TEXTURE_2D_ARRAY),
+            name
+        )
     }
     
     /// <#Description#>
     public func enableNPOTSupport() {
-        glTexParameteri(GLenum(GL_TEXTURE_2D_ARRAY),
-                        GLenum(GL_TEXTURE_WRAP_S),
-                        GL_CLAMP_TO_EDGE)
+        glTexParameteri(
+            GLenum(GL_TEXTURE_2D_ARRAY),
+            GLenum(GL_TEXTURE_WRAP_S),
+            GL_CLAMP_TO_EDGE
+        )
         
-        glTexParameteri(GLenum(GL_TEXTURE_2D_ARRAY),
-                        GLenum(GL_TEXTURE_WRAP_T),
-                        GL_CLAMP_TO_EDGE)
+        glTexParameteri(
+            GLenum(GL_TEXTURE_2D_ARRAY),
+            GLenum(GL_TEXTURE_WRAP_T),
+            GL_CLAMP_TO_EDGE
+        )
         
-        glTexParameteri(GLenum(GL_TEXTURE_2D_ARRAY),
-                        GLenum(GL_TEXTURE_MAG_FILTER),
-                        GL_NEAREST)
+        glTexParameteri(
+            GLenum(GL_TEXTURE_2D_ARRAY),
+            GLenum(GL_TEXTURE_MAG_FILTER),
+            GL_NEAREST
+        )
         
-        glTexParameteri(GLenum(GL_TEXTURE_2D_ARRAY),
-                        GLenum(GL_TEXTURE_MIN_FILTER),
-                        GL_NEAREST)
+        glTexParameteri(
+            GLenum(GL_TEXTURE_2D_ARRAY),
+            GLenum(GL_TEXTURE_MIN_FILTER),
+            GL_NEAREST
+        )
     }
     
     /// <#Description#>
@@ -151,16 +163,18 @@ public class GLTexture2DArray: GLObject,
         glBlendFunc(GLenum(GL_SRC_ALPHA),
                     GLenum(GL_ONE_MINUS_SRC_ALPHA))
         
-        glTexSubImage3D(GLenum(GL_TEXTURE_2D_ARRAY),
-                        0,
-                        0,
-                        0,
-                        GLint(index),
-                        GLsizei(realSize.width),
-                        GLsizei(realSize.height),
-                        1,
-                        GLenum(GL_RGBA),
-                        GLenum(GL_UNSIGNED_BYTE),
-                        context.data)
+        glTexSubImage3D(
+            GLenum(GL_TEXTURE_2D_ARRAY),
+            0,
+            0,
+            0,
+            GLint(index),
+            GLsizei(realSize.width),
+            GLsizei(realSize.height),
+            1,
+            GLenum(GL_RGBA),
+            GLenum(GL_UNSIGNED_BYTE),
+            context.data
+        )
     }
 }

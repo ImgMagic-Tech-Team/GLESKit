@@ -12,6 +12,8 @@ import GLKit
 /// <#Description#>
 open class GLObject {
     
+    public static let Invalid: GLuint = 0
+    
     /// <#Description#>
     var name: GLuint
     
@@ -20,7 +22,7 @@ open class GLObject {
     /// - Parameter name: <#name description#>
     /// - Throws: <#throws value description#>
     init(name: GLuint) throws {
-        if name == 0 {
+        if name == GLObject.Invalid {
             let errMsg = "Make sure your GL context has been successfully set up"
             throw GLObject.ObjectError.unableToCreate(suggestion: errMsg)
         }

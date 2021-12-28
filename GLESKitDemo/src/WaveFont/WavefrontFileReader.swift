@@ -22,7 +22,7 @@ internal class WavefrontFileReader {
     
     init(fileName: String, type: String, bundle: Bundle) throws {
         guard let path = bundle.path(forResource: fileName, ofType: type) else {
-            throw GLResourceLoadingError.fileNotFound(fileName: fileName)
+            throw GLResource.LoadingError.fileNotFound(fileName: fileName)
         }
         
         let url = URL(fileURLWithPath: path)

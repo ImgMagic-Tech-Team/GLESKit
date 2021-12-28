@@ -10,12 +10,7 @@ import UIKit
 import OpenGLES
 import GLKit
 
-/// <#Description#>
-///
-/// - missingAttachment: <#missingAttachment description#>
-public enum GLFrameBufferError: Error {
-    case missingAttachment(details: String)
-}
+
 
 /// <#Description#>
 public enum GLColorAttachment {
@@ -50,6 +45,13 @@ public enum GLColorAttachment {
 public class GLFramebuffer: GLObject, GLUsable, GLSizeable {
 
     /// <#Description#>
+    ///
+    /// - missingAttachment: <#missingAttachment description#>
+    public enum Err: Error {
+        case missingAttachment(details: String)
+    }
+    
+    /// <#Description#>
     private(set) public var size: CGSize = .zero
     
     /// <#Description#>
@@ -75,13 +77,17 @@ public class GLFramebuffer: GLObject, GLUsable, GLSizeable {
     
     /// <#Description#>
     public func use() {
-        glBindFramebuffer(GLenum(GL_FRAMEBUFFER),
-                          name)
+        glBindFramebuffer(
+            GLenum(GL_FRAMEBUFFER),
+            name
+        )
         let drawBuffers = colorAttachments.map { (colorAttachment, object) -> GLenum in
             return colorAttachment.glRepresentation
         }
-        glDrawBuffers(GLsizei(drawBuffers.count),
-                      drawBuffers)
+        glDrawBuffers(
+            GLsizei(drawBuffers.count),
+            drawBuffers
+        )
     }
     
     
@@ -102,35 +108,48 @@ public class GLFramebuffer: GLObject, GLUsable, GLSizeable {
                             attachment destinationAttachment: GLColorAttachment,
                             rectangle destinationRect: CGRect) throws {
         
-        glBindFramebuffer(GLenum(GL_READ_FRAMEBUFFER),
-                          sourceFramebuffer.name)
-        glBindFramebuffer(GLenum(GL_DRAW_FRAMEBUFFER),
-                          destinationFramebuffer.name)
+        glBindFramebuffer(
+            GLenum(GL_READ_FRAMEBUFFER),
+            sourceFramebuffer.name
+        )
+        glBindFramebuffer(
+            GLenum(GL_DRAW_FRAMEBUFFER),
+            destinationFramebuffer.name
+        )
         
         var sourceRectInPixels = GLCGGeometryConverter.pixels(from: sourceRect)
         // Invert origin Y
         guard let sourceAttachedObject = sourceFramebuffer.colorAttachments[sourceAttachment] else {
-            throw GLFrameBufferError.missingAttachment(details: "Attemp to copy from \(sourceAttachment), which doesn't have anything attached to it")
+            throw GLFramebuffer.Err.missingAttachment(details: "Attemp to copy from \(sourceAttachment), which doesn't have anything attached to it")
         }
         guard destinationFramebuffer.colorAttachments[destinationAttachment] != nil else {
-            throw GLFrameBufferError.missingAttachment(details: "Attemp to copy to \(destinationAttachment), which doesn't have anything attached to it")
+            throw GLFramebuffer.Err.missingAttachment(details: "Attemp to copy to \(destinationAttachment), which doesn't have anything attached to it")
         }
         
         // Invert Y origin
-        sourceRectInPixels = GLCGGeometryConverter.inverted(rect: sourceRectInPixels,
-                                                      relativeTo: GLCGGeometryConverter.pixels(from: sourceAttachedObject.size))
-        let destinationRectInPixels = GLCGGeometryConverter.pixels(from: destinationRect)
+        sourceRectInPixels = GLCGGeometryConverter.inverted(
+            rect: sourceRectInPixels,
+            relativeTo:
+                GLCGGeometryConverter.pixels(
+                    from: sourceAttachedObject.size
+                )
+        )
+        let destinationRectInPixels = GLCGGeometryConverter.pixels(
+            from: destinationRect
+        )
         
-        glBlitFramebuffer(GLint(sourceRectInPixels.minX),
-                          GLint(sourceRectInPixels.minY),
-                          GLint(sourceRectInPixels.maxX),
-                          GLint(sourceRectInPixels.maxY),
-                          GLint(destinationRectInPixels.minX),
-                          GLint(destinationRectInPixels.minY),
-                          GLint(destinationRectInPixels.maxX),
-                          GLint(destinationRectInPixels.maxY),
-                          GLbitfield(GL_COLOR_BUFFER_BIT),
-                          GLenum(GL_LINEAR))
+        glBlitFramebuffer(
+            GLint(sourceRectInPixels.minX),
+            GLint(sourceRectInPixels.minY),
+            GLint(sourceRectInPixels.maxX),
+            GLint(sourceRectInPixels.maxY),
+            GLint(destinationRectInPixels.minX),
+            GLint(destinationRectInPixels.minY),
+            GLint(destinationRectInPixels.maxX),
+            GLint(destinationRectInPixels.maxY),
+            GLbitfield(GL_COLOR_BUFFER_BIT),
+            GLenum(GL_LINEAR)
+        )
     }
     
     /// <#Description#>

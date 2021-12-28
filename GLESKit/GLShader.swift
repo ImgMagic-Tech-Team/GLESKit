@@ -11,36 +11,38 @@ import OpenGLES
 
 
 /// <#Description#>
-public enum GLShaderType {
-    case vertex
-    case fragment
-    
-    /// <#Description#>
-    internal var glType: GLenum {
-        switch self {
-        case .vertex:
-            return GLenum(GL_VERTEX_SHADER)
-        case .fragment:
-            return GLenum(GL_FRAGMENT_SHADER)
-        }
-    }
-}
-
-/// <#Description#>
-///
-/// - failedCompilation: <#failedCompilation description#>
-/// - sourceFileNotFound: <#sourceFileNotFound description#>
-public enum GLShaderError: Error {
-    case failedCompilation(details: String)
-    case sourceFileNotFound
-}
-
-
-/// <#Description#>
 public class GLShader: GLObject {
 
+    
     /// <#Description#>
-    internal let type: GLShaderType
+    public enum ShaderType {
+        case vertex
+        case fragment
+        
+        /// <#Description#>
+        public var glType: GLenum {
+            switch self {
+            case .vertex:
+                return GLenum(GL_VERTEX_SHADER)
+            case .fragment:
+                return GLenum(GL_FRAGMENT_SHADER)
+            }
+        }
+    }
+    
+    /// <#Description#>
+    ///
+    /// - failedCompilation: <#failedCompilation description#>
+    /// - sourceFileNotFound: <#sourceFileNotFound description#>
+    public enum Err: Error {
+        case failedCompilation(details: String)
+        case sourceFileNotFound
+    }
+
+    
+    
+    /// <#Description#>
+    internal let type: ShaderType
     
     /// <#Description#>
     internal let source: String
@@ -51,9 +53,9 @@ public class GLShader: GLObject {
     ///   - resourceName: <#resourceName description#>
     ///   - type: <#type description#>
     /// - Throws: <#throws value description#>
-    public init(resourceName: String, type: GLShaderType) throws {
+    public init(resourceName: String, type: GLShader.ShaderType) throws {
         guard let shaderSourcePath = Bundle.main.path(forResource: resourceName, ofType: nil) else {
-            throw GLShaderError.sourceFileNotFound
+            throw GLShader.Err.sourceFileNotFound
         }
         let source = try String(contentsOfFile: shaderSourcePath)
         let name = glCreateShader(type.glType)
@@ -65,7 +67,7 @@ public class GLShader: GLObject {
         var compiled: GLint = 0
         glGetShaderiv(name, GLenum(GL_COMPILE_STATUS), &compiled)
         
-        if compiled == 0 {
+        if compiled == GLObject.Invalid {
             
             var infoLength: GLint = 0
             glGetShaderiv(name, GLenum(GL_INFO_LOG_LENGTH), &infoLength)
@@ -81,7 +83,7 @@ public class GLShader: GLObject {
             
             glDeleteShader(name)
             
-            throw GLShaderError.failedCompilation(details: errorMessage)
+            throw GLShader.Err.failedCompilation(details: errorMessage)
         }
         
         self.type = type
@@ -93,4 +95,7 @@ public class GLShader: GLObject {
     deinit {
         glDeleteShader(name)
     }
+    
+    
+    
 }

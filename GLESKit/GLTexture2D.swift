@@ -60,11 +60,13 @@ public class GLTexture2D: GLObject,
         self.size = size
         
         let realSize = GLCGGeometryConverter.pixels(from: size)
-        glTexStorage2D(GLenum(GL_TEXTURE_2D),
-                       1,
-                       GLenum(GL_RGBA8),
-                       GLsizei(realSize.width),
-                       GLsizei(realSize.height))
+        glTexStorage2D(
+            GLenum(GL_TEXTURE_2D),
+            1,
+            GLenum(GL_RGBA8),
+            GLsizei(realSize.width),
+            GLsizei(realSize.height)
+        )
         
     }
     
@@ -77,7 +79,7 @@ public class GLTexture2D: GLObject,
     public init(resourceName: String,
                 bundle: Bundle = Bundle.main) throws {
         guard let filePath = bundle.path(forResource: resourceName, ofType: nil) else {
-            throw GLResourceLoadingError.fileNotFound(fileName: resourceName)
+            throw GLResource.LoadingError.fileNotFound(fileName: resourceName)
         }
         
         let textureInfo = try GLKTextureLoader.texture(withContentsOfFile: filePath,
@@ -90,21 +92,29 @@ public class GLTexture2D: GLObject,
     
     /// <#Description#>
     public func enableNPOTSupport() {
-        glTexParameteri(GLenum(GL_TEXTURE_2D),
-                        GLenum(GL_TEXTURE_WRAP_S),
-                        GL_CLAMP_TO_EDGE)
+        glTexParameteri(
+            GLenum(GL_TEXTURE_2D),
+            GLenum(GL_TEXTURE_WRAP_S),
+            GL_CLAMP_TO_EDGE
+        )
         
-        glTexParameteri(GLenum(GL_TEXTURE_2D),
-                        GLenum(GL_TEXTURE_WRAP_T),
-                        GL_CLAMP_TO_EDGE)
+        glTexParameteri(
+            GLenum(GL_TEXTURE_2D),
+            GLenum(GL_TEXTURE_WRAP_T),
+            GL_CLAMP_TO_EDGE
+        )
         
-        glTexParameteri(GLenum(GL_TEXTURE_2D),
-                        GLenum(GL_TEXTURE_MAG_FILTER),
-                        GL_NEAREST)
+        glTexParameteri(
+            GLenum(GL_TEXTURE_2D),
+            GLenum(GL_TEXTURE_MAG_FILTER),
+            GL_NEAREST
+        )
         
-        glTexParameteri(GLenum(GL_TEXTURE_2D),
-                        GLenum(GL_TEXTURE_MIN_FILTER),
-                        GL_NEAREST)
+        glTexParameteri(
+            GLenum(GL_TEXTURE_2D),
+            GLenum(GL_TEXTURE_MIN_FILTER),
+            GL_NEAREST
+        )
         
         
     }
@@ -145,15 +155,17 @@ public class GLTexture2D: GLObject,
         
         view.layer.render(in: context)
         
-        glTexSubImage2D(GLenum(GL_TEXTURE_2D),
-                        0,
-                        0,
-                        0,
-                        GLsizei(realSize.width),
-                        GLsizei(realSize.height),
-                        GLenum(GL_RGBA),
-                        GLenum(GL_UNSIGNED_BYTE),
-                        context.data)
+        glTexSubImage2D(
+            GLenum(GL_TEXTURE_2D),
+            0,
+            0,
+            0,
+            GLsizei(realSize.width),
+            GLsizei(realSize.height),
+            GLenum(GL_RGBA),
+            GLenum(GL_UNSIGNED_BYTE),
+            context.data
+        )
     }
     
     
